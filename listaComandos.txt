@@ -1,0 +1,42 @@
+git clone (endereço do repositório) - clona o repositório do github
+    git clone https://github.com/Mateusas3s/DS-Feudo-Lotus 
+
+U - significa que teve um uptade, pronto pra dar o git add
+
+git add - para registrar as alterações
+    git add nomeDoArquivo
+    git add . (registra todos os arquivos com alteções de uma vez)
+
+git status - consegue ver como está o repositório local
+
+M - significa que há mudanças no arquivo, pronto pra dar o git add
+
+A - significa que as alterações foram adicionadas, mas ainda não está completamente consolidada, está pronto pra dar o git commit 
+
+git commit -m"breve descrição do vc fez" - vai de fato connsolidar as alterações feitas
+    git commit -m"consolidando informações"
+
+git commit -s - abre uma aba no terminal, e assim consegue assinar, colocar colaboradores e precisa comentar
+    não sei como salva ainda, então só excluo o terminal e abro um novo
+
+git push origin (branch) - manda pro github
+    git push origin master
+    git push origin guiDSa
+
+git branch (nome da branch q vc quer criar) - cria uma branch
+    git branch guiDSa
+    git branch larissa
+
+git branch -b (nome) - outra forma de criar uma branch
+    git branch -b guiDSa
+
+git branch - para ver todas as branches
+    a verdinha, é a qual vc está mexendo
+
+git checkout (nome da branch q vc quer ir) - para trocar de branch
+    git checkout guiDSa
+    git checkout master
+
+git pull - atualiza o repositório local com as informações do remoto
+
+no github, juntamos as branches através do merge
