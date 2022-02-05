@@ -13,7 +13,7 @@ M - significa que há mudanças no arquivo, pronto pra dar o git add
 
 A - significa que as alterações foram adicionadas, mas ainda não está completamente consolidada, está pronto pra dar o git commit 
 
-git commit -m"breve descrição do vc fez" - vai de fato connsolidar as alterações feitas
+git commit -m"breve descrição do vc fez" - vai de fato consolidar as alterações feitas
     git commit -m"consolidando informações"
 
 git commit -s - abre uma aba no terminal, e assim consegue assinar, colocar colaboradores e precisa comentar
@@ -31,7 +31,7 @@ git branch -b (nome) - outra forma de criar uma branch
     git branch -b guiDSa
 
 git branch - para ver todas as branches
-    a verdinha, é a qual vc está mexendo
+    a verdinha, é na qual vc está mexendo
 
 git checkout (nome da branch q vc quer ir) - para trocar de branch
     git checkout guiDSa
