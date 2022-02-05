@@ -2,5 +2,5 @@
 
 Mateus Augusto - 150062869    
 Larissa Gomes Silva - 211031092<br> 
-Gabriela Silva Alves - 211030756
+Gabriela Silva Alves - 211030756<br>
 Guilherme de Sá Gonçalves - 211031056 
