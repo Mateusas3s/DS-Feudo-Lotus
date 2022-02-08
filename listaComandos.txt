@@ -39,4 +39,7 @@ git checkout (nome da branch q vc quer ir) - para trocar de branch
 
 git pull - atualiza o repositório local com as informações do remoto
 
+git merge (nome da branch) - faz um merge pelo próprio VS Code, muito útil para atualizar a sua branch com o código da master
+    git merge master
+
 no github, juntamos as branches através do merge
