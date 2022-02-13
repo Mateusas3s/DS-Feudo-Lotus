@@ -47,4 +47,41 @@ Mindmapping – resumir de forma clara e objetiva as ideias em um mapa mental, a
 Brainstorming tangível – quando é possível trazer o problema diretamente para a mão dos funcionários 
 Brainstorming Oposto – Basicamente, imaginar no que não fazer para piorar o problema 
 
+<p><b>Exemplo de aplicação prática:</b> <i>Funil de vendas e 5W2H</i></p>
 
+<p>Todo produto desenvolvido objetiva atender alguma necessidade específica. Para que o fruto do processo de desenvolvimento encontre o alvo certo, 
+algumas técnicas de prospecção são empregadas no objetivo de fazer com que a ponte desenvolvedor-cliente seja criada. Entre as diversas técnicas
+de venda, o funil de vendas se mostra como um elemento objetivo que promove, por meio de suas bases, o reconhecimento dos elementos necessários 
+para que uma determinada venda seja estabelecida.</p> 
+<p>O funil passa por diversos pontos de análise que objetivam estruturar uma proposta coerente que vise a adesão do cliente. As etapas são:</p>
+<p>O funil passa por diversos pontos de análise que objetivam estruturar uma proposta coerente que vise a adesão do cliente. As etapas são:</p>
+<ol>
+<li>Descoberta;</li>
+<li>Reconhecimento da necessidade;</li>
+<li>Interesse;</li>
+<li>Compra;</li>
+<li>Fidelização.</li>
+</ol>
+<p>Para que a proposta que seja coerente com a realidade do cliente seja criada, passando por todos os pontos que o funil de vendas se propõe tangenciar, o
+framework 5W2H se mostra como uma ferramenta de uso eficiente durante o processo de elaboração. Aqui, são levantados os seguintes pontos:</p>
+<ul>
+<li>Who? <i>Quem?</i> </li>
+<li>When? <i>Quando?</i></li>
+<li>Where? <i>Onde?</i></li>
+<li>Why? <i>Porquê?</i></li>
+<li>What? <i>O quê?</i></li>
+<li>How? <i>Como?</i></li>
+<li>How much? <i>Quanto?</i></li>
+</ul>
+<p>É pensando nesses focos que o uso do brainstorming pode ser uma alternativa eficiente para o processo de estabelecimento de elementos que serão levados 
+em consideração no momento de criar a proposta nos moldes do funil de vendas. Ao contribuir para o tema em questão, a equipe estará livre para colaborar de maneira
+plural para os questionamentos do 5W2H, trazendo a luz necessária para os pontos a serem levantados.</p>
+<p>O uso de plataformas para o evento também fica a critério da equipe; um exemplo de plataforma dinâmica onde o mesmo ambiente é compartilhado para todos os membros 
+da equipe e a colaborção se torna mais diversa é o google jamboard.</p>
+
+<p><b>Introspecção</b></p>
+
+<p>A introspecção é uma é uma técnica muito utilizada na etapa de elicitação. Ela consiste em entender as funcionalidades importantes de um sistema, de forma que 
+ele funcione. Apesar de muito usada, nem sempre a introspecção traz uma visão próxima da realidade. Uma vez que a pessoa que aplica a introspecção nem sempre tem 
+uma visão voltada para a experiência do usuário.</p>
+fim 
