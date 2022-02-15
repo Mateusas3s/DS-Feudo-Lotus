@@ -6,7 +6,7 @@
 
 # Estrutura
 ## Informações Gerais
-#### Informações para rastreamento e identificação rápida da história no Backlog. Essas informações #### normalmente são:
+#### Informações para rastreamento e identificação rápida da história no Backlog. Essas informações normalmente são:
 #### •	número identificador
 #### •	Projeto/Iniciativa (às vezes)
 #### •	título/nome da história
