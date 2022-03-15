@@ -13,3 +13,4 @@ def cadastro(response):
         form = CadastroForm()
     
     return render(response, 'cadastro/cadastro.html', {'form': form})
+

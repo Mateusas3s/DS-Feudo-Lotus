@@ -1,0 +1,6 @@
+<form method="POST" class="form-group">
+    {% csrf_token %}
+    {{ form }}
+    <p>Clique <a href="/cadastro">aqui</a> para criar uma conta</p> 
+    <button type="submit" class="btn btn-success">login</button>
+</form>
