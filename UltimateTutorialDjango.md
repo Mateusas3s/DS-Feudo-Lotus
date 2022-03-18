@@ -4,7 +4,7 @@
 </br>
 </br>
 
-<h1>#1 Startando projeto e configuração para português (BR)</h1>
+<h1>-1 Startando projeto e configuração para português (BR)</h1>
 Em Settings:</br>
 Mudar a LANGUAGE_CODE para 'pt-br'</br>
 e TIME_ZONE para = 'America/Brasilia'
@@ -21,7 +21,7 @@ São aplicações q podemos reutilizar em outros projetos</br>
 <i>py manage.py startapp nome</i></br>
 </br>
 </br>
-<h1>#2 Criação de um app (módulo) e configuração de views e urls</h1>
+<h1>-2 Criação de um app (módulo) e configuração de views e urls</h1>
 Views:</br>
 <i>from django.views.generic import TemplateView</i></br>
 Aqui é onde teremos nossas funções ou classes,
@@ -55,7 +55,7 @@ E por último precisa ativar a app no INSTALLED_APPS:</br>
 'nome.apps.NomeConfig',</br>
 </br>
 </br>
-<h1>#3 Configurar arquivos estáticos (CSS, JS, imagens)</h1>
+<h1>-3 Configurar arquivos estáticos (CSS, JS, imagens)</h1>
 Criar pasta chamada static na raiz</br>
 E dentro dela criar mais pastas para o q vc quiser colocar</br>
 css, js, img</br>
@@ -70,7 +70,7 @@ Pra por imagens, basta salvar na pasta img do static</br>
 img src="{% static 'caminho do arquivo/nome do arquivo' %}" width='200' alt=""</br>
 </br>
 </br>
-<h1>#4 Configurar e reutilizar templates com blocos</h1>
+<h1>-4 Configurar e reutilizar templates com blocos</h1>
 Criando um modelo.html onde conterá seu design modelo que estará em todas as páginas</br>
 Usando {% block name %}{% endblock %}</br>
 Assim vc n vai precisar colocar em todos os arquivos .html, só vai precisar herdar do modelo.html</br>
@@ -78,16 +78,16 @@ Basta colocar um {% extends 'pasta/modelo.html' %}</br>
 E para mudar o conteúdo dos blocos basta mundar dentro deles</br>
 </br>
 </br>
-<h1>#5 Criando links para as urls (baseado no "name" da url)</h1>
+<h1>-5 Criando links para as urls (baseado no "name" da url)</h1>
 Mexe no href dos templates</br>
 Basta colocar '{% url 'name' %}(o nome q agt define lá nos urlpatterns)</br>
 </br>
 </br>
-<h1>#6 Arquitetura App View Template (MVT)</h1>
+<h1>-6 Arquitetura App View Template (MVT)</h1>
 Resumo de como o django funciona</br>
 </br>
 </br>
-<h1>#7 Introdução ao models.py para criação de classes e atributos</h1>
+<h1>-7 Introdução ao models.py para criação de classes e atributos</h1>
 Todo Campo terá uma Atividade, e devemos dizer as propriedades de ambos, usando os Fields</br>
 Sendo q cada Atividade vai ter uma ForeignKey para indicar o Campo</br></br>
 E já consegue ver pelo admin as classes criadas mas tem q alterar o arquivo admin.py do app, para que apareça lá no /admin:</br>
@@ -96,7 +96,7 @@ admin.site.register(Campo)</br>
 admin.site.register(Atividade)</br>
 Mas ainda falta criar as tabelas no banco de dados, ai só dar um </br>
 makemigrations e migrate no terminal</br></br></br>
-<h1>#8 Criando um formulário para inserir registros (CreateView)</h1>
+<h1>-8 Criando um formulário para inserir registros (CreateView)</h1>
 Nas views importar:</br>
 from django.views.generic.edit import CreateView</br>
 from.models import Campo, Atividade</br>
@@ -121,7 +121,7 @@ form action="", method="POST"</br>
     {{ form.as_p }}</br>
     button type="submit" class="btn btn-primary">Cadastrar/button</br>
 /form</br></br></br>
-<h1>#9 Atualizar registros (UpdateView)</h1>
+<h1>-9 Atualizar registros (UpdateView)</h1>
 Importar UpdateView nas views</br>
 definir as classes da mesma forma q no CreateView</br></br>
 Nas urls.py:</br>
@@ -131,7 +131,7 @@ path('editar/campo/int:pk>', CampoUpdate.as_view(), name='editar-campo'),</br>
 path('editar/atividade/int:pk>', AtividadeUpdate.as_view(), name='editar-atividade'),</br>
 o int:pk é pra pegar o id exato da view q vc quer editar</br>
 e pronto, já consegue editar suas models</br></br></br>
-<h1>#10 Excluir registros (DeleteView) e mostrar os dados do objeto no template</h1>
+<h1>-10 Excluir registros (DeleteView) e mostrar os dados do objeto no template</h1>
 Importar DeleteView nas views</br>
 e criar as novas views, mas n precisa colocar os fields</br>
 class CampoDelete(DeleteView):</br>
@@ -146,7 +146,7 @@ dentro do forms:</br>
 Deseja excluir o registro: {{ object }}</br>
 ele trata as models como 'object'</br>
 e graças ao on_delete:'PROTECT', só se´ra possível excluir um campo, se n tiver nenhuma atividade nele</br></br></br>
-<h1>#11 Listar registros/objetos com o ListView e laço de repetição (for) no template</h1>
+<h1>-11 Listar registros/objetos com o ListView e laço de repetição (for) no template</h1>
 Importar lá nas views:</br>
 from django.views.generic.list import ListView</br>
 e na criação das classe, só colocar o model e o template_name</br>
