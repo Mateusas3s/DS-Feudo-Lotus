@@ -1,0 +1,20 @@
+{% extends 'usuarios/home.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+<h1>Editar perfil do Usuário</h1>
+    <form action="{% url 'salvarProfile' request.user.id %}" method="POST">
+        {% csrf_token %}
+          <p><label for="id_username">Nome de Usuário:</label>
+            <input type="text" name="username" value={{user_dado.username}} maxlength="50" id="id_username"></p>
+          <p><label for="id_nome_completo">Nome completo:</label>
+            <input type="text" name="nome_completo" value={{usuario.nome_completo}} maxlength="50" id="id_nome_completo"></p>
+          <p><label for="id_telefone">Telefone:</label>
+            <input type="number" name="telefone" value={{usuario.telefone}} id="id_telefone"></p>
+          <p><label for="id_email">Email:</label>
+            <input type="email" name="email" value={{user_dado.email}} id="id_email"></p>
+        <button type="submit">Salvar alterações</button>
+    </form>
+</div>
+{% endblock %}

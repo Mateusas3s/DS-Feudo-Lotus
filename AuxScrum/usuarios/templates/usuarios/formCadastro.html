@@ -1,3 +1,4 @@
+{% load static %}
 
 <!DOCTYPE html>
 <html>
@@ -37,14 +38,11 @@
 			margin-top: 20px;
 		}
 
-		#form-title{
-			color: rgb(0, 0, 0);
-		}
-		.login_btn {
+		.cadastro_btn {
 			width: 100%;
 			background: #000000 !important;
 			color: white !important;
-		}
+		}	
 		.login_btn:focus {
 			box-shadow: none !important;
 			outline: 0px !important;
@@ -52,16 +50,35 @@
 		.login_container {
 			padding: 0 2rem;
 		}
-		/* .input-group-text {
-			background: #f7ba5b !important;
-			color: white !important;
+		.input-group-text {
+			/* background: #f7ba5b !important; */
+			color: grey !important;
 			border: 0 !important;
-			border-radius: 0.25rem 0 0 0.25rem !important;
-		} */
+			border-radius: 30px 0 0 30px !important;
+		}
 		.input_user,
 		.input_pass:focus {
 			box-shadow: none !important;
 			outline: 0px !important;
+		}
+
+		.form-control{
+			border-radius: 0 30px 30px 0 !important;
+		}
+		.form-control-2{
+			border-radius: 30px 30px 30px 30px !important;
+		}
+		.input-group-append{
+			width: 47.5px;
+		}
+		.logo{
+			width: 80%;
+		}
+		.criar {
+			color: #000000;
+		}
+		.criar:hover{
+			color: black;
 		}
 
 	</style>
@@ -72,41 +89,48 @@
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
 				<div class="d-flex justify-content-center">
-					<h3 id="form-title">CADASTRO</h3>
+					<img src="{% static 'img/AuxScrum.png' %}" class="logo" alt="logo">
 				</div>
 				<div class="d-flex justify-content-center form_container">
 
 					<form method="POST" action="">
                         {% csrf_token %}
-						<div class="input-group mb-3">
+						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
-							<input type="text" name="username">
+							<input type="text" name="username" class="form-control">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
 							</div>
-							<input type="email" name="email">
+							<input type="email" name="email" class="form-control">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" name="password1">
+							<input type="password" name="password1" class="form-control">
 						</div>
 						<div class="input-group mb-2">
 							<div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
-							<input type="password" name="password2">
+							<input type="password" name="password2" class="form-control">
 						</div>
 
-				   		<div class="d-flex justify-content-center mt-3 login_container">
-				 			<input class="btn login_btn" type="submit" value="Cadastrar">
+				   		<div class="d-flex justify-content-center mt-4 login_container">
+				 			<input class="btn cadastro_btn form-control-2" type="submit" value="Cadastrar">
 				   		</div>
 					</form>
+				</div>
+
+				<div class="mt-3">
+					<div class="d-flex justify-content-center links">
+						<a href="{% url 'login' %}" class="criar">Já tenho uma conta</a>
+					</div>
+
 				</div>
 			</div>
 		</div>
