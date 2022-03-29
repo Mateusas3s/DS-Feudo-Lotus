@@ -32,17 +32,25 @@
 			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 			/* border-radius: 5px; */
 		}
-
+		.errorUserCard{
+			margin-top: 20px;
+			width: 330px;
+			background: black;
+			color: white;
+			font-family: 'Times New Roman', Times, serif;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			border-radius: 30px;
+		}
 		.form_container {
 			margin-top: 20px;
 		}
-
 		.login_btn {
 			width: 100%;
 			background: #000000 !important;
 			color: white !important;
-            border-radius: 30px;
-            
+            border-radius: 30px; 
 		}
 		.login_btn:focus {
 			box-shadow: none !important;
@@ -83,6 +91,7 @@
 		.criar:hover{
 			color: black;
 		}
+		
 
 	</style>
 
@@ -116,12 +125,13 @@
 					</form>
 
 				</div>
-		
+				<div class="errorUserCard">
+					{{ form.errors }}
+				</div>
 				<div class="mt-3">
 					<div class="d-flex justify-content-center links">
 						<a href="{% url 'cadastro' %}" class="criar">Criar uma conta</a>
 					</div>
-			
 				</div>
 			</div>
 		</div>

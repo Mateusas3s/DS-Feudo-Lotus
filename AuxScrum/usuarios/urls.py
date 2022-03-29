@@ -10,6 +10,8 @@ urlpatterns = [
         ), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('cadastro/', UsuarioCreate.as_view(), name='cadastro'),
-    path('edit_profile/<int:user_id>', views.edit_profile, name='edit_profile'),
-    path('salvarProfile/<int:user_id>', views.salvarProfile, name='salvarProfile'),
+    path('paginaPerfil/<int:user_id>/', views.paginaPerfil, name='pagina-perfil'),
+    path('edit_profile/<int:user_id>/', views.edit_profile, name='edit_profile'),
+    path('salvarProfile/<int:user_id>/', views.salvarProfile, name='salvarProfile'),
+    path('alterarSenha/', views.alterarSenha, name='alterarSenha')
 ]
