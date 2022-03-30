@@ -1,0 +1,119 @@
+{% extends 'usuarios/home.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% block title %}Editar Perfil{% endblock %}
+{% block navbar %}
+<div class="container" id="nav-container">
+  <nav class="navbar navbar-expand-lg fixed-top">
+      <a href="{% url 'home' %}" class="navbar-brand">
+          <img src="{% static 'img/AuxScrum.png' %}" class="logo" alt="logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" 
+          aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+          <div class="navbar-nav">
+              <a href="{% url 'alterarSenha' %}" class="nav-item nav-link" id="perfil-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0 0 24 24">
+                  <path d="M 7 5 C 3.1545455 5 0 8.1545455 0 12 C 0 15.845455 3.1545455 19 7 19 C 9.7749912 19 12.089412 17.314701 13.271484 15 L 16 15 L 16 18 L 22 18 L 22 15 L 24 15 L 24 9 L 23 9 L 13.287109 9 C 12.172597 6.6755615 9.8391582 5 7 5 z M 7 7 C 9.2802469 7 11.092512 8.4210017 11.755859 10.328125 L 11.988281 11 L 22 11 L 22 13 L 20 13 L 20 16 L 18 16 L 18 13 L 12.017578 13 L 11.769531 13.634766 C 11.010114 15.575499 9.1641026 17 7 17 C 4.2454545 17 2 14.754545 2 12 C 2 9.2454545 4.2454545 7 7 7 z M 7 9 C 5.3549904 9 4 10.35499 4 12 C 4 13.64501 5.3549904 15 7 15 C 8.6450096 15 10 13.64501 10 12 C 10 10.35499 8.6450096 9 7 9 z M 7 11 C 7.5641294 11 8 11.435871 8 12 C 8 12.564129 7.5641294 13 7 13 C 6.4358706 13 6 12.564129 6 12 C 6 11.435871 6.4358706 11 7 11 z"></path></svg> Alterar Senha
+              </a>
+              <a href="{% url 'logout' %}" class="nav-item nav-link" id="logout-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 512 512">
+                  <path d="M160 416H96c-17.67 0-32-14.33-32-32V128c0-17.67 14.33-32 32-32h64c17.67 0 32-14.33 32-32S177.7 32 160 32H96C42.98 32 0 74.98 0 128v256c0 53.02 42.98 96 96 96h64c17.67 0 32-14.33 32-32S177.7 416 160 416zM502.6 233.4l-128-128c-12.51-12.51-32.76-12.49-45.25 0c-12.5 12.5-12.5 32.75 0 45.25L402.8 224H192C174.3 224 160 238.3 160 256s14.31 32 32 32h210.8l-73.38 73.38c-12.5 12.5-12.5 32.75 0 45.25s32.75 12.5 45.25 0l128-128C515.1 266.1 515.1 245.9 502.6 233.4z"/></svg> Sair
+              </a>
+          </div>
+      </div>
+  </nav>
+</div>
+{% endblock %}
+
+<style>
+  .user_card {
+    width: 600px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #71BBFF;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .perfil{
+    margin-top: 12px;
+  }
+  .form_container {
+    margin-top: 20px;
+  }
+  .input-group-text {
+    color: grey !important;
+    border: 0 !important;
+    border-radius: 30px 0 0 30px !important;
+  }
+  .form-control{
+    border-radius: 0 30px 30px 0 !important;
+  }
+  .form-control-2{
+    border-radius: 30px 30px 30px 30px !important;
+  }
+  .input-group-append{
+    width: 47.5px;
+  }
+  .input-group-text{
+    height: 47px;
+  }
+  .salvar_btn {
+			width: 100%;
+			background: #000000 !important;
+			color: white !important;
+            border-radius: 30px; 
+		}
+</style>
+
+<div class="container h-100">
+  <div class="d-flex justify-content-center h-100">
+    <div class="user_card">
+      <div class="d-flex justify-content-center">
+        <svg class='perfil' xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 640 512">
+          <path d="M223.1 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 223.1 256zM274.7 304H173.3C77.61 304 0 381.7 0 477.4C0 496.5 15.52 512 34.66 512h286.4c-1.246-5.531-1.43-11.31-.2832-17.04l14.28-71.41c1.943-9.723 6.676-18.56 13.68-25.56l45.72-45.72C363.3 322.4 321.2 304 274.7 304zM371.4 420.6c-2.514 2.512-4.227 5.715-4.924 9.203l-14.28 71.41c-1.258 6.289 4.293 11.84 10.59 10.59l71.42-14.29c3.482-.6992 6.682-2.406 9.195-4.922l125.3-125.3l-72.01-72.01L371.4 420.6zM629.5 255.7l-21.1-21.11c-14.06-14.06-36.85-14.06-50.91 0l-38.13 38.14l72.01 72.01l38.13-38.13C643.5 292.5 643.5 269.7 629.5 255.7z"/></svg>
+      </div>
+      <div class="d-flex justify-content-center form_container">
+        <form method="POST" action="{% url 'salvarProfile' request.user.id %}">
+            {% csrf_token %}
+          <div class="input-group mb-2">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input class="form-control" type="text" name="username" value='{{user_dado.username}}' maxlength="50" id="id_username">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-signature"></i></span>
+            </div>
+            <input class="form-control" type="text" name="nome_completo" value='{{usuario.nome_completo}}' maxlength="50" id="id_nome_completo">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-phone"></i></span>
+            </div>
+            <input class="form-control" type="number" name="telefone" value='{{usuario.telefone}}' id="id_telefone">
+          </div>
+          <div class="input-group mb-2">
+            <div class="input-group-append">
+              <span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+            </div>
+            <input class="form-control" type="email" name="email" value='{{user_dado.email}}' id="id_email">
+          </div>
+          <div class="d-flex justify-content-center mt-3 login_container">
+            <input class="btn salvar_btn" type="submit" value="Salvar Alterações">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
