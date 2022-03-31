@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Missões</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Missões</h1>
+    </div>
+
+        <form action= "{% url 'missoes:home' %}" method="post">
+            {% csrf_token %}
+                 <input type="text" style="width: 300px;" placeholder="Escreva aqui uma nova missão."
+                 aria-label="Escreva aqui uma nova missão" arial-describedby="button-addon2" name="nome">
+                 <small> {{form.nome.errors}}</small>
+                <div>
+                    <button type="submit">Adcionar</button>
+                </div>
+        </form>
+
+        <h2>Missões Pendentes</h2>
+
+        {% for missao in missoes_pendentes %}
+            <form>
+                <div style="display: flex; justify-content: flex-start;">
+                    <div style="margin:5px 5px;"> 
+                        <div>
+                            <input type="checkbox" arial-label="Checkbox para missoes">
+                        </div>
+                    </div>
+                    <input readonly type="text" arial-label="Text input para missoes" value="{{missao.nome}}">
+                 </div>   
+        </form>
+        {% endfor %}
+</body>
+</html>
