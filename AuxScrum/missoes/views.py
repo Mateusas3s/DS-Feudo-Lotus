@@ -31,8 +31,14 @@ def home(request):
                     })
 
 def detalhe (request, missao_id):
-    missao = Missao.objects.get(id=missao_id)
-    form = MissaoForm(request.POST, instance=missao)
-    if form.is_valid():
-        form.save()
+    if request.method=='POST':
+        missao = Missao.objects.get(id=missao_id)
+        form = MissaoForm(request.POST, instance=missao)
+        if form.is_valid():
+            form.save()
+    return HttpResponseRedirect(reverse('missoes:home'))
+
+def excluir(request, missao_id):
+    if request.method=='POST':
+        Missao.objects.filter(id=missao_id).delete()
     return HttpResponseRedirect(reverse('missoes:home'))

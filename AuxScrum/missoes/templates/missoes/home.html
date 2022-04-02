@@ -29,7 +29,7 @@
                         aria-label='Descreva sua missao' name='nome' value="{{missao.nome}}">
                     <input type="hidden" value="checked" name="feita">
                     <div class="input-group-append">
-                        <button type='submit'class="btn btn-sucess">Marcar como feita</button>
+                        <button type='submit'class="btn btn-sucess">Concluir</button>
                     </div>   
                 </div>
             </form>
@@ -39,17 +39,29 @@
         <h2>Missões Concluidas</h2>
 
         {% for missao in missoes_feitas %}
-            <form action="{% url 'missoes:detalhe' missao_id=missao.id %}" method="post">
-                {% csrf_token %}
+            <div>
                 <div>
-                    <input type="text" placeholder="Descreva sua missao" required="required"
-                        aria-label='Descreva sua missao' name='nome' value="{{missao.nome}}">
-                    
-                    <div class="input-group-append">
-                        <button type='submit'>Marcar como pendente</button>
-                    </div>   
+                    <form action="{% url 'missoes:excluir' missao_id=missao.id %}" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <div>
+                                <button type='submit'>Excluir</button>
+                            </div>   
+                        </div>
+                    </form>
                 </div>
-            </form>
+                </div>
+                <form action="{% url 'missoes:detalhe' missao_id=missao.id %}" method="post">
+                    {% csrf_token %}
+                    <div>
+                        <input type="text" placeholder="Descreva sua missao" required="required"
+                            aria-label='Descreva sua missao' name='nome' value="{{missao.nome}}">
+                        
+                        <div class="input-group-append">
+                            <button type='submit'>Marcar como pendente</button>
+                        </div>   
+                    </div>
+                </form>
 
         {% endfor %}
 </body>

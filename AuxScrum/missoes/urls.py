@@ -7,4 +7,5 @@ app_name = 'missoes'
 urlpatterns=[
     path('', views.home, name='home'),
     path('<int:missao_id>', views.detalhe, name='detalhe'),
+    path('excluir/<int:missao_id>', views.excluir, name='excluir'),
 ]
