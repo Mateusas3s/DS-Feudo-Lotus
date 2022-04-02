@@ -28,10 +28,23 @@ def lista_de_missoes_pendentes(db):
     return missoes
 
 @pytest.fixture
-def resposta_com_lista_de_missoes(client, lista_de_missoes_pendentes):
+def lista_de_missoes_feitas(db):
+    missoes = [ 
+        Missao(nome='Missao 3', feita=True),
+        Missao(nome='Missao 4', feita=True),
+    ]
+    Missao.objects.bulk_create(missoes)
+    return missoes
+
+@pytest.fixture
+def resposta_com_lista_de_missoes(client, lista_de_missoes_pendentes, lista_de_missoes_feitas):
     resp = client.get(reverse('missoes:home'))
     return resp
 
-def test_lista_de_missoes_pendentes_presente(resposta_com_lista_de_missoes, lista_de_missoes_pendentes):
+def test_lista_de_missoes_pendentes_presentes(resposta_com_lista_de_missoes, lista_de_missoes_pendentes):
     for missao in lista_de_missoes_pendentes:
+        assertContains(resposta_com_lista_de_missoes, missao.nome)
+
+def test_lista_de_missoes_feitas_presentes(resposta_com_lista_de_missoes, lista_de_missoes_feitas):
+    for missao in lista_de_missoes_feitas:
         assertContains(resposta_com_lista_de_missoes, missao.nome)

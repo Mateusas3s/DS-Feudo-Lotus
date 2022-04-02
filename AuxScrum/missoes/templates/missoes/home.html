@@ -22,16 +22,35 @@
         <h2>Missões Pendentes</h2>
 
         {% for missao in missoes_pendentes %}
-            <form>
-                <div style="display: flex; justify-content: flex-start;">
-                    <div style="margin:5px 5px;"> 
-                        <div>
-                            <input type="checkbox" arial-label="Checkbox para missoes">
-                        </div>
-                    </div>
-                    <input readonly type="text" arial-label="Text input para missoes" value="{{missao.nome}}">
-                 </div>   
-        </form>
+            <form action="{% url 'missoes:detalhe' missao_id=missao.id %}" method="post">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Descreva sua missao" required="required"
+                        aria-label='Descreva sua missao' name='nome' value="{{missao.nome}}">
+                    <input type="hidden" value="checked" name="feita">
+                    <div class="input-group-append">
+                        <button type='submit'class="btn btn-sucess">Marcar como feita</button>
+                    </div>   
+                </div>
+            </form>
+
+        {% endfor %}
+
+        <h2>Missões Concluidas</h2>
+
+        {% for missao in missoes_feitas %}
+            <form action="{% url 'missoes:detalhe' missao_id=missao.id %}" method="post">
+                {% csrf_token %}
+                <div>
+                    <input type="text" placeholder="Descreva sua missao" required="required"
+                        aria-label='Descreva sua missao' name='nome' value="{{missao.nome}}">
+                    
+                    <div class="input-group-append">
+                        <button type='submit'>Marcar como pendente</button>
+                    </div>   
+                </div>
+            </form>
+
         {% endfor %}
 </body>
 </html>

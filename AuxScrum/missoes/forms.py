@@ -5,3 +5,8 @@ class NovaMissaoForm(ModelForm):
     class Meta:
         model = Missao
         fields = ['nome']
+
+class MissaoForm(ModelForm):
+    class Meta:
+        model = Missao
+        fields = ['nome', 'feita']
