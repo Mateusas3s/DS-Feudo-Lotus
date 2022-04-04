@@ -58,7 +58,64 @@
     </header>
     <script src="{% static 'js/scripts.js' %}"></script>
     <div>
-        {% block content %}{% endblock %}
+        {% block content %}
+            <style>
+                .container{
+                    margin-top: 50px;
+                }
+                .button{
+                    color: black;
+                    background-color: #D6ECF5;
+                    width: 215px;
+                    height: 164px;
+                    left: 61px;
+                    top: 221px;
+                    border-radius: 30px;
+                    margin-left: 60px;
+                    margin-bottom: 30px;
+                    margin-top: 10px;
+                }
+                .input-group-text {
+                    color: rgb(255, 255, 255) !important;
+                    background-color: black;
+                    border: 0 !important;
+                    border-radius: 30px 0 0 30px !important;
+                }
+
+                .form-control{
+                    border-radius: 0 30px 30px 0 !important;
+                    max-width: 180px;
+                    color: white;
+                    background-color: black;
+                }
+              
+                .input-group-append{
+                    width: 47.5px;
+                }
+                .input-group-text{
+                    height: 47px;
+                }
+                
+            </style>
+            <div class="container">
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-address-book"></i></span>
+                    </div>
+                    <label type="text" name="meusProjetos" class="form-control">Meus Projetos</label>
+                </div>
+                <a href="{% url 'cadastrar-projeto' %}">
+                    <button class="button"><i class="fa fa-plus"></i><br>Criar novo Projeto</button>
+                </a>
+                {% for projeto in object_list %}
+                <a href="">
+                    <button class="button"><br>{{ projeto.nome }}</button>
+                </a>
+                {% endfor %}
+            </div>
+
+            </div>
+        {% endblock %}
     </div>
 </body>
 

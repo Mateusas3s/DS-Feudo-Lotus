@@ -11,9 +11,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 
-
-
-
 # Create your views here.
 
 class UsuarioCreate(CreateView):
