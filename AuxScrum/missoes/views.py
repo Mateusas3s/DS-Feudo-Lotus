@@ -11,30 +11,53 @@ def home(request):
         form = NovaMissaoForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('missoes:home'))
         else:
             missoes_pendentes = Missao.objects.filter(feita=False).all()
-            missoes_progresso = Missao.objects.filter(feita=False).all()
-            missoes_feitas = Missao.objects.filter(feita=True).all()
+            missoes_progresso = Missao.objects.filter(feita=True).all()
             return render(
                 request,'missoes/home.html', 
                 {
                     'form':form,                     
                     'missoes_pendentes': missoes_pendentes,
                     'missoes_progresso': missoes_progresso,
-                    'missoes_feitas': missoes_feitas,
                 },
                  status=400)
     
     missoes_pendentes = Missao.objects.filter(feita=False).all()
-    missoes_progresso = Missao.objects.filter(feita=False).all() 
-    missoes_feitas = Missao.objects.filter(feita=True).all()      
+    missoes_progresso = Missao.objects.filter(feita=True).all() 
+
     return render (request, 'missoes/home.html',  
                     {
                         'missoes_pendentes': missoes_pendentes,
                         'missoes_progresso': missoes_progresso,
+                    })
+
+def home2(request):
+    if request.method == 'POST':
+        form = MissaoForm2(request.POST)
+        if form.is_valid():
+            form.save()
+        else:
+            missoes_progresso = Missao.objects.filter(feita=False).all()
+            missoes_feitas = Missao.objects.filter(feita=True).all()
+            return render(
+                request,'missoes/home.html', 
+                {
+                    'form':form,
+                    'missoes_progresso': missoes_progresso,
+                    'missoes_feitas': missoes_feitas,
+                },
+                 status=400)
+    
+    missoes_progresso = Missao.objects.filter(feita=False).all() 
+    missoes_feitas = Missao.objects.filter(feita=True).all()
+
+    return render (request, 'missoes/home.html',  
+                    {
+                        'missoes_progresso': missoes_progresso,
                         'missoes_feitas': missoes_feitas,
                     })
+
 
 def detalhe (request, missao_id):
     if request.method=='POST':
@@ -50,9 +73,9 @@ def detalhe2 (request, missao_id):
         form = MissaoForm2(request.POST, instance=missao)
         if form.is_valid():
             form.save()
-    return HttpResponseRedirect(reverse('missoes:home'))
+    return HttpResponseRedirect(reverse('missoes:home2'))
 
 def excluir(request, missao_id):
     if request.method=='POST':
         Missao.objects.filter(id=missao_id).delete()
-    return HttpResponseRedirect(reverse('missoes:home'))
+    return HttpResponseRedirect(reverse('missoes:home2'))
