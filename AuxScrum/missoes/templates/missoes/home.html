@@ -29,11 +29,26 @@
                         aria-label='Descreva sua missao' name='nome' value="{{missao.nome}}">
                     <input type="hidden" value="checked" name="feita">
                     <div class="input-group-append">
-                        <button type='submit'class="btn btn-sucess">Concluir</button>
+                        <button type='submit'class="btn btn-sucess">Iniciar</button>
                     </div>   
                 </div>
             </form>
+        {% endfor %}
 
+        <h2>Missões em Progresso</h2>
+
+        {% for missao in missoes_progresso %}
+        <form action="{% url 'missoes:detalhe2' missao_id=missao.id %}" method="post">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Descreva sua missao" required="required"
+                    aria-label='Descreva sua missao' name='nome' value="{{missao.nome}}">
+                <input type="hidden" value="checked" name="feita">
+                <div class="input-group-append">
+                    <button type='submit'class="btn btn-sucess">Concluir</button>
+                </div>   
+            </div>
+        </form>
         {% endfor %}
 
         <h2>Missões Concluidas</h2>
