@@ -108,7 +108,7 @@
                     <button class="button"><i class="fa fa-plus"></i><br>Criar novo Projeto</button>
                 </a>
                 {% for projeto in object_list %}
-                <a href="">
+                <a href="{% url 'pagina-projeto' projeto.pk %}">
                     <button class="button"><br>{{ projeto.nome }}</button>
                 </a>
                 {% endfor %}

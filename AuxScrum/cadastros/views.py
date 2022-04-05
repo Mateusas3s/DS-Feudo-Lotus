@@ -1,4 +1,6 @@
+from audioop import reverse
 from re import template
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -43,3 +45,18 @@ class ProjetoList(ListView):
     def get_queryset(self):
         self.object_list = Projeto.objects.filter(membros=self.request.user)
         return self.object_list
+
+class PaginaProjeto(CreateView):
+    model = Projeto
+    fields = ['nome', 'descricao', 'membros']
+    template_name = 'cadastros/paginaProjeto.html'
+
+    def get_context_data(self, *args, **kwargs):
+        return super().get_context_data(*args, **kwargs)
+
+        
+    
+
+
+
+
