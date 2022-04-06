@@ -1,21 +1,20 @@
-<html>
-    <body>
-        <div>
-            <h1>Relatório da Daily</h1>
-            <form action="." method="post">
-                <div>
-                    {% csrf_token %}
-                    <h3>O que eu fiz hoje?</h3>
-                    {{form.q1}}
-                    <h3>Quais foram os impedimentos?</h3>
-                    {{form.q2}}
-                    <h3>O que pretendo fazer?</h3>
-                    {{form.q3}}
-                </div>
-                <div>
-                    <input type="submit" value="Enviar Relatório">
-                </div>
-            </form>
-        </div>
-    </body>
-</html>
+{% block formuDaily %}
+<h3>Formulário Daily</h3>
+<p class="lead">
+    Preencha o seu relatório da Daily do dia :)
+</p>
+<hr>
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>O que eu fiz hoje?</p>
+    {{form.q1}}
+    <hr>
+    <p>Quais foram os impedimentos?</p>
+    {{form.q2}}
+    <hr>
+    <p>O que pretendo fazer?</p>
+    {{form.q3}}
+    <hr>
+    <button type="submit" class="btn btn primary">Enviar Relatório</button>
+</form>
+{% endblock %}

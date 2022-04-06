@@ -1,11 +1,14 @@
 from django.shortcuts import render
-from . import forms
+from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView
+from .models import formDaily
 
-# Create your views here.
-
-def daily(request):
-    form = forms.formularioDaily()
-    context = {
-        'form': form
-    }
-    return render(request, 'daily/relatorio_daily.html', context= context)
+class dailyCreate(CreateView):
+    model= formDaily
+    fields = [
+        'q1',
+        'q2',
+        'q3',
+    ]
+    template_name = 'daily/relatorio_daily.html'
+    reverse_lazy = 'daily'
