@@ -8,8 +8,11 @@ from django.views.generic.edit import DeleteView
 from django.views.generic.list import ListView
 from django.urls import reverse_lazy
 
+from usuarios.models import UserProfile, User
+
 from .models import Projeto
 from .forms import ProjetoForm
+
 
 # #Create your views here.
 
@@ -24,7 +27,7 @@ class ProjetoList(ListView):
 def paginaProjeto(request, pk):
     projeto = Projeto.objects.get(id=pk)
     context = {
-        'projeto': projeto
+        'projeto': projeto,
     }
     return render(request, 'cadastros/paginaProjeto.html', context)
 
@@ -56,24 +59,4 @@ class ProjetoDelete(DeleteView):
     model = Projeto
     template_name = 'cadastros/excluirProjeto.html'
     success_url = reverse_lazy('home')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-        
-    
-
-
-
 

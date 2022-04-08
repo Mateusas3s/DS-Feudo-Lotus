@@ -1,8 +1,10 @@
 from dataclasses import fields
+from multiprocessing import context
 from re import template
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic import TemplateView
 from flask import request
 from .models import UserProfile
 from .forms import UsuarioForm
@@ -74,5 +76,5 @@ class UserDelete(DeleteView):
     template_name = 'usuarios/formDelete.html'
     model = User
     success_url = reverse_lazy('login')
-    
+
 
