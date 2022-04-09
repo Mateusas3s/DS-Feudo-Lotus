@@ -3,7 +3,7 @@ from re import template
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views.generic.edit import CreateView, DeleteView
-from flask import request
+# from flask import request
 from .models import UserProfile
 from .forms import UsuarioForm
 from django.urls import reverse_lazy
