@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.views.generic.edit import CreateView, DeleteView
 from django.views.generic import TemplateView
-from flask import request
+# from flask import request
 from .models import UserProfile
 from .forms import UsuarioForm
 from django.urls import reverse_lazy
