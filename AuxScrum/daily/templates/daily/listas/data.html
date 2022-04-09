@@ -1,0 +1,26 @@
+{% block conteudo %}
+<h3>Lista de datas com as contribuições registradas registradas</h3>
+<hr>
+<table width="467" border="1px">
+    <tr>
+        <th width="101" height="40">Data</th>
+        <th width="101" height="40">Opções</th>
+    </tr>
+
+    {% for date in object_list %}
+    <tr>
+        <td>{{ date.date }}</td>
+        <td>
+            <a href="{% url 'daily-day-update' date.pk %}">Editar</a>
+            <a href="{% url 'daily-day-delete' date.pk %}">Excluir</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="2">Nenhum campo registrado.</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

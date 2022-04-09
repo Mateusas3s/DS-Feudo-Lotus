@@ -1,0 +1,15 @@
+{% block dateDaily %}
+
+<h3>Vamos realizar a Daily?</h3>
+
+<form action='' method="POST">
+
+    {%  csrf_token %}
+    <p>Dia de hoje:</p>
+    {{ form.date }}
+    <br>
+    <hr>
+    <button type="submit">Começar</button>
+
+</form>
+{% endblock %}

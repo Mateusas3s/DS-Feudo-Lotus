@@ -1,0 +1,23 @@
+{% block dateDaily %}
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+    <h3>Preencha os campos e submeta sua contribuição :)</h3>
+
+    <h4>O que fiz hoje?</h4>
+    {{ form.q1 }}
+
+    <h4>Quais foram os impedimentos?</h4>
+    {{ form.q2 }}
+
+    <h4>O que pretendo fazer?</h4>
+    {{ form.q3 }}
+
+    <p>Esta daily é referente ao dia:</p>
+    {{ form.date_daily }}
+    <hr>
+
+    <button type="submit">Submeter</button>
+</form>
+{% endblock %}
