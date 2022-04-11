@@ -4,12 +4,14 @@
 <table width="467" border="1px">
     <tr>
         <th width="101" height="40">Data</th>
+        <th width="101" height="40">Colaborador</th>
         <th width="101" height="40">Opções</th>
     </tr>
 
     {% for date in object_list %}
     <tr>
         <td>{{ date.date }}</td>
+        <td>{{ date.user }}</td>
         <td>
             <a href="{% url 'daily-day-update' date.pk %}">Editar</a>
             <a href="{% url 'daily-day-delete' date.pk %}">Excluir</a>
@@ -17,10 +19,11 @@
     </tr>
     {% empty %}
     <tr>
-        <td colspan="2">Nenhum campo registrado.</td>
+        <td colspan="3">Nenhuma daily registrada.</td>
     </tr>
     {% endfor %}
 
 </table>
-
+<hr>
+<button onclick="window.location.href = '/daily'">Voltar</button>
 {% endblock %}

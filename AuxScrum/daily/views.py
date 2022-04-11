@@ -15,7 +15,8 @@ class daily_Pag(TemplateView):
 class dailyCreate(CreateView):
     model = dateDaily
     fields = [
-        'date'
+        'date',
+        'user',
     ]
     template_name = 'daily/inicio_daily.html'
     success_url= reverse_lazy('form-daily')
@@ -37,7 +38,8 @@ class formDailyCreate(CreateView):
 class dailyUpdate(UpdateView):
     model = dateDaily
     fields = [
-        'date'
+        'date',
+        'user',
     ]
     template_name = 'daily/inicio_daily.html'
     url = 'update-daily'

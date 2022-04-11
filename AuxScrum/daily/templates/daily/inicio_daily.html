@@ -5,6 +5,10 @@
 <form action='' method="POST">
 
     {%  csrf_token %}
+    <p>Nome do colaborador:</p>
+    {{ form.user }}
+    <br>
+    <hr>
     <p>Dia de hoje:</p>
     {{ form.date }}
     <br>

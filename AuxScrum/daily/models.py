@@ -1,11 +1,13 @@
+from tkinter import CASCADE
 from django.db import models
 from datetime import date
 
 class dateDaily(models.Model):
     date =  models.DateField(default=date.today, blank=True)
+    user = models.CharField(max_length=50)
 
     def __str__(self):
-        return str(self.date)
+        return '{} - {}'.format(str(self.date), self.user)
 
 class formularioDaily(models.Model):
     date_daily = models.ForeignKey(dateDaily, on_delete=models.CASCADE)
