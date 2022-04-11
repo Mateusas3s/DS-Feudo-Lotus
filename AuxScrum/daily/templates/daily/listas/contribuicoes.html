@@ -1,15 +1,33 @@
+<h2>Registros</h2>
+<button onclick="window.location.href = '/daily'">Voltar</button>
+<br>
+<br>
+
 {% for daily in daily %}
-<h4>Dia e colaborador:</h4>
+<strong>Dia e colaborador:</strong>
 {{daily.date_daily}} 
 <br>
+
+<strong>Daily)</strong>
+<br>
 <strong>O que fiz hoje?</strong>
+<br>
 {{daily.q1}}
 <br>
+
 <strong>Quais foram os impedimentos?</strong>
+<br>
 {{daily.q2}}
 <br>
+
 <strong>O que pretendo fazer??</strong>
+<br>
 {{daily.q3}}
 <br>
 <hr>
+
+{% empty %}
+<p>Ainda não possui registros.</p>
+
 {% endfor %}
+
