@@ -1,5 +1,4 @@
-from audioop import reverse
-from dataclasses import fields
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -67,3 +66,7 @@ class dailyDelete(DeleteView):
 class dailyList(ListView):
     model = dateDaily
     template_name= 'daily/listas/data.html'
+
+def contribList(request):
+    daily = formularioDaily.objects.all()
+    return render(request,'daily/listas/contribuicoes.html', {'daily':daily})

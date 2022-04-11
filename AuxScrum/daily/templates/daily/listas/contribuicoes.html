@@ -1,0 +1,15 @@
+{% for daily in daily %}
+<h4>Dia e colaborador:</h4>
+{{daily.date_daily}} 
+<br>
+<strong>O que fiz hoje?</strong>
+{{daily.q1}}
+<br>
+<strong>Quais foram os impedimentos?</strong>
+{{daily.q2}}
+<br>
+<strong>O que pretendo fazer??</strong>
+{{daily.q3}}
+<br>
+<hr>
+{% endfor %}
