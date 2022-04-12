@@ -1,0 +1,14 @@
+{% block dateDaily %}
+
+<h3>Excluir relatório</h3>
+
+<form action='' method="POST">
+
+    {%  csrf_token %}
+    <p>Deseja ralmente excluir o registro da Daily do dia {{ object }}?</p>
+    <br>
+    <hr>
+    <button type="submit">Confirmar</button>
+
+</form>
+{% endblock %}

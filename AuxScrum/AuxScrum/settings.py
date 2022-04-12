@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # Minhas Apps
     'usuarios.apps.UsuariosConfig',
     'cadastros.apps.CadastrosConfig',
+    'daily.apps.DailyConfig',
 ]
 
 MIDDLEWARE = [
