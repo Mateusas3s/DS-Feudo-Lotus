@@ -6,7 +6,7 @@ from . models import dateDaily, formularioDaily
 class dateForm(forms.ModelForm):
     class Meta:
         model = dateDaily
-        fields = ['date', 'user', 'projeto']
+        fields = ['date', 'user']
 
 class formDateForm(forms.ModelForm):
     class Meta:

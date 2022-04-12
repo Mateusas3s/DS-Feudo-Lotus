@@ -6,7 +6,7 @@ from .views import dailyList
 from . import views
 
 urlpatterns=[
-    path('', daily_Pag.as_view(), name='pagina-daily'),
+    path('daily/', daily_Pag.as_view(), name='pagina-daily'),
     #create
     path('create/date', views.dailyCreate, name='daily-day'),
     path('create/form', views.formDailyCreate, name='form-daily'),

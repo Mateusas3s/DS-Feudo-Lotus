@@ -44,13 +44,13 @@ def dailyUpdate(request, pk):
         form = dateForm(request.POST, instance=daily)
         if form.is_valid():
             form.save()
-            url = '/daily/update/form/{}'.format(pk)
+            url = '/update/form/{}'.format(pk)
             return redirect(url)
     context = {
         'form': form,
         'daily': daily,
     }
-    return render(request, 'daily/inicio_daily.html', context)
+    return render(request, 'daily/inicio_daily_edit.html', context)
     
 #update do formulário da daily
 def formDailyUpdate(request, pk):
@@ -65,7 +65,7 @@ def formDailyUpdate(request, pk):
         'form': form,
         'formDaily': formDaily,
     }
-    return render(request, 'daily/form_daily.html', context)
+    return render(request, 'daily/form_daily_edit.html', context)
 
 
 ##### DELETE #####

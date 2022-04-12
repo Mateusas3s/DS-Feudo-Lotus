@@ -7,8 +7,6 @@ from cadastros.models import Projeto
 class dateDaily(models.Model):
     date =  models.DateField(default=date.today, blank=True)
     user = models.CharField(max_length=50)
-    projeto = models.ForeignKey(Projeto, on_delete=models.CASCADE)
-
     def __str__(self):
         return '{} - {}'.format(str(self.date), self.user)
 

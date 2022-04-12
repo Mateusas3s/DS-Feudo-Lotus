@@ -9,7 +9,7 @@
     }
     .nome{
         position: absolute;
-        width: 500px;
+        width: 750px;
         height: 50px;
         background: white !important;
 	    color: black !important;
@@ -73,7 +73,7 @@
     .botao{
         position: absolute;
         margin-top: 150px;
-        margin-left: 150px;
+        margin-left: 160px;
         width: 200px;
         height: 40px;
         background: black !important;
@@ -84,17 +84,17 @@
     }
 </style>
 <div class="container">
-    <label class="nome">Vamos realizar a Daily?</label>
+    <label class="nome">Confirme se essa é mesmo a daily que quer editar</label>
     <div class='perguntas'>
         <form action='' method="POST">
             {% csrf_token %}
             <label class="nomeColaborador">Nome do Colaborador:</label></br>
-            <input class='inputNomeColaborador'type="text" name="user" maxlength="50" required id="id_user">
+            <input class='inputNomeColaborador'type="text" name="user" maxlength="50" required id="id_user" value="{{daily.user}}">
             
             <label class="nomeData">Data de hoje:</label></br>
-            <input class="inputData" type="text" placeholder='mês/dia/ano' name="date" id="id_date"><input type="hidden" name="initial-date" id="initial-id_date">
+            <input class="inputData" type="text" placeholder='mês/dia/ano' name="date" id="id_date" value="{{daily.date}}"><input type="hidden" name="initial-date" id="initial-id_date">
             <br>
-            <button class="botao" type="submit">Começar</button>
+            <button class="botao" type="submit">Editar</button>
         </form>
     </div>
 </div>
