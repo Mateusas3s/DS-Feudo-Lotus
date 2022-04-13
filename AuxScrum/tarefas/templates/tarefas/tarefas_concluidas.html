@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Tarefas Concluídas{% endblock %}
+
+{% block content %}
+  <div class="h-100 p-5 bg-light border rounded-3">
+    <h1>Tarefas Concluídas</h1>
+    <div class="list-group">
+      {% for tarefa in tarefas_concluidas %}
+        <button type="button" class="list-group-item list-group-item-success list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal{{ tarefa.id }}">
+          <h5>{{ tarefa.descricao }}</h5>
+          <small>Criado em: {{ tarefa.criacao.day }}/{{ tarefa.criacao.month }}/{{ tarefa.criacao.year }}</small>
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="modal{{ tarefa.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{ tarefa.descricao }} | {{ tarefa.categoria|capfirst }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  <a class="btn btn-danger" href="{% url 'excluir_tarefa' tarefa.id %}">Excluir</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <h2>Nenhuma tarefa foi concluída</h2>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}

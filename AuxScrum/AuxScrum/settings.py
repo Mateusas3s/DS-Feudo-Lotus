@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     # Minhas Apps
     'usuarios.apps.UsuariosConfig',
     'cadastros.apps.CadastrosConfig',
-    'missoes.apps.MissoesConfig'
+    'missoes.apps.MissoesConfig',
+    'tarefas.apps.TarefasConfig',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +137,7 @@ LOGIN_URL = 'login'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# django-crispy-forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4' #novo
+
