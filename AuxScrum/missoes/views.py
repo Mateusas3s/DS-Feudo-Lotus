@@ -27,7 +27,7 @@ def home(request):
                  status=400)
     
     missoes_pendentes = Missao.objects.filter(feita=False).all()
-    missoes_progresso = Missao.objects.filter(feita=False).all() 
+    missoes_progresso = Missao.objects.filter(feita=True).all() 
     missoes_feitas = Missao.objects.filter(feita=True).all()      
     return render (request, 'missoes/home.html',  
                     {
