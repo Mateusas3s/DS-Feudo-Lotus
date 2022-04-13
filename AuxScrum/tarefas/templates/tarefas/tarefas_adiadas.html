@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %}Tarefas Concluídas{% endblock %}
 
 {% block content %}
   <div class="h-100 p-5 bg-light border rounded-3">
     <h1>Tarefas Em Progresso</h1>
     <div class="list-group">
       {% for tarefa in tarefas_adiadas %}
-        <button type="button" class="list-group-item list-group-item-warning list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal{{ tarefa.id }}">
+        {% if tarefa.categoria == 'urgente' %}
+          <button type="button" class="list-group-item list-group-item-danger list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal{{ tarefa.id }}">
+        {% else %}
+          {% if tarefa.categoria == 'importante' %}
+            <button type="button" class="list-group-item list-group-item-warning list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal{{ tarefa.id }}">
+          {% else %}
+            <button type="button" class="list-group-item list-group-item-primary list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal{{ tarefa.id }}">
+          {% endif %}
+        {% endif %}
           <h5>{{ tarefa.descricao }}</h5>
           <small>Criado em: {{ tarefa.criacao.day }}/{{ tarefa.criacao.month }}/{{ tarefa.criacao.year }}</small>
         </button>
