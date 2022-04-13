@@ -65,24 +65,24 @@
 </style>
 <div class="container">
     <label class="nome">Registros</label>
-    <button class="botaoVoltar" onclick="window.location.href = '/daily'">Voltar</button>
+    <button class="botaoVoltar" onclick="window.location.href = '/retro'">Voltar</button>
 
-    {% for daily in daily %}
+    {% for retro in retro %}
     <div class="caixa">
         <label class="q"><strong>Dia e colaborador:</strong></label><br>
-        <label class="dateNome">{{daily.date_daily}}</label>
+        <label class="dateNome">{{retro.date_retro}}</label>
         <br>
-        <label class="q"><strong>O que fiz hoje?</strong></label>
+        <label class="q"><strong>Quais foram os pontos positivos dessa Sprint?</strong></label>
         <br>
-        <textarea disabled class="txt1">{{daily.q1}}</textarea>
+        <textarea disabled class="txt1">{{retro.q1}}</textarea>
         <br>
-        <label class="q"><strong>Quais foram os impedimentos?</strong></label>
+        <label class="q"><strong>E os pontos negativos?</strong></label>
         <br>
-        <textarea disabled class="txt1">{{daily.q2}}</textarea>
+        <textarea disabled class="txt1">{{retro.q2}}</textarea>
         <br>
-        <label class="q"><strong>O que pretendo fazer??</strong></label>
+        <label class="q"><strong>Alguma sugestão de melhora?</strong></label>
         <br>
-        <textarea disabled class="txt1">{{daily.q3}}</textarea>
+        <textarea disabled class="txt1">{{retro.q3}}</textarea>
         <br>
 
         {% empty %}
