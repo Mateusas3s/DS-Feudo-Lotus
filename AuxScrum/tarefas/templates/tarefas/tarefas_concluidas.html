@@ -1,14 +1,82 @@
-{% extends 'base.html' %}
+{% extends 'usuarios/home.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}Tarefas Concluídas{% endblock %}
 
 {% block content %}
-  <div class="h-100 p-5 bg-light border rounded-3">
-    <h1>Tarefas Concluídas</h1>
+<style>
+    .container{
+    margin-top: 80px;
+  }
+  .nome{
+    position: absolute;
+    width: 500px;
+    height: 50px;
+    background: white !important;
+    color: black !important;
+    border-radius: 30px;
+    font-size: 30px;
+    text-align: center;
+  }
+  .botaoEditar{
+    margin-left: 650px;
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background: black !important;
+    color: white !important;
+    border-radius: 30px;
+  }
+    .botaoExcluir{
+    margin-left: 820px;
+    position: absolute;
+    width: 160px;
+    height: 50px;
+    background: #000000 !important;
+    color: white !important;
+    border-radius: 30px; 
+  }
+  .botaoVoltar{
+    margin-left: 1000px;
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background: black !important;
+    color: white !important;
+    border-radius: 30px;
+  }
+  .list-group{
+    margin-top: 80px;
+    background-color: white;
+    border-radius: 30px 30px 0px 0px;
+    padding: 10px;
+  }
+  .semTarefa{
+    text-align: center;
+  }
+  .btn-warning{
+    margin-left: 40px;
+    border-radius: 30px;
+  }
+  .btn-danger{
+    margin-left: 10px;
+    border-radius: 30px;
+  }
+</style>
+  <div class="container">
+    <label class="nome">Tarefas Concluídas</label>
+    <a href="{% url 'tarefas_pendentes_list' %}"><button class="botaoEditar" > 
+      Pendentes
+    </button></a>
+    <a href="{% url 'tarefas_progresso_list' %}"><button class="botaoExcluir" >
+      Em Progresso
+    </button></a>
+    <button class="botaoVoltar" onclick="window.location.href = '/tarefas'">Voltar</button>
     <div class="list-group">
       {% for tarefa in tarefas_concluidas %}
         <button type="button" class="list-group-item list-group-item-success list-group-item-action" data-bs-toggle="modal" data-bs-target="#modal{{ tarefa.id }}">
-          <h5>{{ tarefa.descricao }}</h5>
+          <h5><b>{{ tarefa.descricao }}</b></h5>
           <small>Criado em: {{ tarefa.criacao.day }}/{{ tarefa.criacao.month }}/{{ tarefa.criacao.year }}</small>
         </button>
         <!-- Modal -->
@@ -21,14 +89,15 @@
               </div>
               <div class="modal-body">
                 <p>
-                  <a class="btn btn-danger" href="{% url 'excluir_tarefa' tarefa.id %}">Excluir</a>
+                  <a class="btn btn-warning" href="{% url 'mover_para_progresso' tarefa.id %}">Mover para 'em Progresso'</a>
+                  <a class="btn btn-danger" href="{% url 'excluir_tarefa_concluidas' tarefa.id %}">Excluir</a>
                 </p>
               </div>
             </div>
           </div>
         </div>
-      {% empty %}
-        <h2>Nenhuma tarefa foi concluída</h2>
+        {% empty %}
+        <h3 class="semTarefa">Nenhuma tarefa concluída</h3>
       {% endfor %}
     </div>
   </div>

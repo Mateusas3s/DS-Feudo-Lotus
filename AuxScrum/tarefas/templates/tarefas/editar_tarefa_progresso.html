@@ -1,0 +1,178 @@
+{% extends 'usuarios/home.html' %}
+{% load static %}
+
+{% block title %}{{ tarefa.descricao }}{% endblock %}
+
+{% block content %}
+<!-- <div class="h-100 p-5 bg-light border rounded-3">
+  <h1>Editar {{ tarefa.descricao }}</h1>
+  <form method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="GVbTcwKoG1vGjYLF869Hq5NS9laX2lGa0s6JcwNB1gfnfFJhNES8gHpSla4VgGUJ">
+    <tr>
+    <th><label for="id_tarefa">Tarefa:</label></th>
+    <td>
+      <ul class="errorlist"><li>This field is required.</li></ul>
+      <input type="text" name="tarefa" maxlength="400" required id="id_tarefa" value="{{tarefa.descricao}}">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_categoria">Categoria:</label></th>
+    <td>
+      
+      <select name="categoria" id="id_categoria">
+  <option value="urgente">Urgente</option>
+
+  <option value="importante" selected>Importante</option>
+
+  <option value="precisa ser feito">Precisa ser feito</option>
+
+</select>
+      
+      
+        
+      
+    </td>
+  </tr>
+    <br>
+    <input class="btn btn-success" type="submit" value="Salvar alterações">
+    <a class="btn btn-danger" href="/pendentes/">Cancelar</a>
+  </form>
+</div> -->
+  <style>
+    .container{
+        margin-top: 80px;
+    }
+    .nome{
+        position: absolute;
+        width: 500px;
+        height: 50px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        font-size: 30px;
+        text-align: center;
+    }
+    .formulario{
+        margin-top: 80px;
+    }
+    .descricao{
+        margin-left: 0px;
+        position: absolute;
+        width: 200px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .inputDescricao{
+        margin-left: 25px;
+        margin-top: 50px;
+        position: absolute;
+        width: 1100px;
+        height: 45px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: left;
+        text-indent: 30px;
+    }
+    .categoria{
+        margin-left: 0px;
+        margin-top: 130px;
+        position: absolute;
+        width: 200px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .select{
+        margin-left: 25px;
+        margin-top: 180px;
+        border-radius: 30px;
+        height: 45px;
+        width: 500px;
+        text-align: center;
+    }
+    .botaoCancelar{
+        position: absolute;
+        width: 200px;
+        height: 45px;
+        margin-top: 75px;
+        margin-left: 700px;
+        background-color: black;
+        color: white;
+        border-radius: 30px;
+    }
+    .botaoSalvar{
+        position: absolute;
+        width: 200px;
+        height: 45px;
+        margin-left: 400px;
+        margin-top: 300px;
+        background-color: black;
+        color: white;
+        border-radius: 30px;
+    }
+    .pendente{
+        margin-left: 90px;
+        position: absolute;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    .progresso{
+        position: absolute;
+        margin-left: 479px;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    .concluida{
+        position: absolute;
+        margin-left: 870px;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    
+</style>
+<div class="container">
+    <label class="nome">Editar Tarefa <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 576 512">
+      <path d="M0 64C0 28.65 28.65 0 64 0H224V128C224 145.7 238.3 160 256 160H384V299.6L289.3 394.3C281.1 402.5 275.3 412.8 272.5 424.1L257.4 484.2C255.1 493.6 255.7 503.2 258.8 512H64C28.65 512 0 483.3 0 448V64zM256 128V0L384 128H256zM564.1 250.1C579.8 265.7 579.8 291 564.1 306.7L534.7 336.1L463.8 265.1L493.2 235.7C508.8 220.1 534.1 220.1 549.8 235.7L564.1 250.1zM311.9 416.1L441.1 287.8L512.1 358.7L382.9 487.9C378.8 492 373.6 494.9 368 496.3L307.9 511.4C302.4 512.7 296.7 511.1 292.7 507.2C288.7 503.2 287.1 497.4 288.5 491.1L303.5 431.8C304.9 426.2 307.8 421.1 311.9 416.1V416.1z"/></svg>
+    </label>
+    <div class="formulario">
+        <form method="POST">
+            {% csrf_token %}
+
+            <label class="descricao" for="id_descricao">Descrição:</label>
+            <input class='inputDescricao' type="text" name="tarefa" maxlength="400" required id="id_tarefa" value="{{tarefa.descricao}}">
+            
+            <label class="categoria" for="id_categoria">Categoria:</label>
+            <select class='select' name="categoria" id="id_categoria">
+                <option value="" selected>----------------------</option>
+                <option value="precisa ser feito">Precisa ser feito</option>
+                <option value="importante">Importante</option>
+                <option value="urgente">Urgente</option>
+            </select>
+            
+            <input class="botaoSalvar" type="submit" value="Salvar">
+          </form>
+          <a href="{% url 'tarefas_progresso_list' %}"><button class="botaoCancelar">Cancelar</button></a>
+    </div>
+  </div>
+{% endblock %}

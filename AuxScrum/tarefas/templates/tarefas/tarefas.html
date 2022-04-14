@@ -1,0 +1,133 @@
+{% extends 'usuarios/home.html' %}
+{% load static %}
+
+{% block title %}Tarefas{% endblock %}
+
+{% block content %}
+
+<style>
+    .container{
+        margin-top: 80px;
+    }
+    .nome{
+        position: absolute;
+        width: 500px;
+        height: 50px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        font-size: 30px;
+        text-align: center;
+    }
+    .formulario{
+        margin-top: 80px;
+    }
+    .descricao{
+        margin-left: 0px;
+        position: absolute;
+        width: 200px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .inputDescricao{
+        margin-left: 25px;
+        margin-top: 50px;
+        position: absolute;
+        width: 1100px;
+        height: 45px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: left;
+        text-indent: 30px;
+    }
+    .categoria{
+        margin-left: 0px;
+        margin-top: 130px;
+        position: absolute;
+        width: 200px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .select{
+        margin-left: 25px;
+        margin-top: 180px;
+        border-radius: 30px;
+        height: 45px;
+        width: 500px;
+        text-align: center;
+    }
+    .botao{
+        position: relative;
+        width: 300px;
+        height: 45px;
+        margin-left: 200px;
+        background-color: black;
+        color: white;
+        border-radius: 30px;
+    }
+    .pendente{
+        margin-left: 90px;
+        position: absolute;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    .progresso{
+        position: absolute;
+        margin-left: 479px;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    .concluida{
+        position: absolute;
+        margin-left: 870px;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    
+</style>
+<div class="container">
+    <label class="nome">Adicionar Tarefa <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 512 512">
+            <path d="M152.1 38.16C161.9 47.03 162.7 62.2 153.8 72.06L81.84 152.1C77.43 156.9 71.21 159.8 64.63 159.1C58.05 160.2 51.69 157.6 47.03 152.1L7.029 112.1C-2.343 103.6-2.343 88.4 7.029 79.03C16.4 69.66 31.6 69.66 40.97 79.03L63.08 101.1L118.2 39.94C127 30.09 142.2 29.29 152.1 38.16V38.16zM152.1 198.2C161.9 207 162.7 222.2 153.8 232.1L81.84 312.1C77.43 316.9 71.21 319.8 64.63 319.1C58.05 320.2 51.69 317.6 47.03 312.1L7.029 272.1C-2.343 263.6-2.343 248.4 7.029 239C16.4 229.7 31.6 229.7 40.97 239L63.08 261.1L118.2 199.9C127 190.1 142.2 189.3 152.1 198.2V198.2zM224 96C224 78.33 238.3 64 256 64H480C497.7 64 512 78.33 512 96C512 113.7 497.7 128 480 128H256C238.3 128 224 113.7 224 96V96zM224 256C224 238.3 238.3 224 256 224H480C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H256C238.3 288 224 273.7 224 256zM160 416C160 398.3 174.3 384 192 384H480C497.7 384 512 398.3 512 416C512 433.7 497.7 448 480 448H192C174.3 448 160 433.7 160 416zM0 416C0 389.5 21.49 368 48 368C74.51 368 96 389.5 96 416C96 442.5 74.51 464 48 464C21.49 464 0 442.5 0 416z"/></svg>
+    </label>
+    <div class="formulario">
+        <form method="post">
+            {% csrf_token %}
+
+            <label class="descricao" for="id_descricao">Descrição:</label>
+            <input class='inputDescricao' type="text" name="descricao" maxlength="400" required id="id_descricao">
+            
+            <label class="categoria" for="id_categoria">Categoria:</label>
+            <select class='select' name="categoria" id="id_categoria">
+                <option value="" selected>----------------------</option>
+                <option value="precisa ser feito">Precisa ser feito</option>
+                <option value="importante">Importante</option>
+                <option value="urgente">Urgente</option>
+            </select>
+            
+            <input class="botao" type="submit" value="Salvar">
+        </form>
+    </div>
+  </div>
+    <a href="{% url 'tarefas_pendentes_list' %}"><button class="pendente">Tarefas Pendentes</button></a>
+    <a href="{% url 'tarefas_progresso_list' %}"><button class="progresso">Tarefas em Progresso</button></a>
+    <a href="{% url 'tarefas_concluidas_list' %}"><button class="concluida">Tarefas Concluídas</button></a>
+{% endblock %}
