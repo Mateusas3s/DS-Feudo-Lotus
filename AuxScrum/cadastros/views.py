@@ -48,7 +48,8 @@ def editarProjeto(request, pk):
         form = ProjetoForm(request.POST, instance=projeto)
         if form.is_valid():
             form.save()
-            return redirect('home')
+            url = '/projeto/{}'.format(pk)
+            return redirect(url)
     context = {
         'form': form,
         'projeto': projeto,
@@ -58,5 +59,6 @@ def editarProjeto(request, pk):
 class ProjetoDelete(DeleteView):
     model = Projeto
     template_name = 'cadastros/excluirProjeto.html'
-    success_url = reverse_lazy('home')
+    url = 'home'
+    success_url = reverse_lazy(url)
 

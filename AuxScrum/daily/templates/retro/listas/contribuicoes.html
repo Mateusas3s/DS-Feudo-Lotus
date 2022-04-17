@@ -1,0 +1,95 @@
+{% extends 'usuarios/home.html' %}
+{% load static %}
+{% block title %}Registro de Contribuições{% endblock %}
+
+
+{% block content %}
+<style>
+    .container{
+        margin-top: 50px;
+    }
+    .nome{
+        position: absolute;
+        width: 400px;
+        height: 50px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        font-size: 30px;
+        text-align: center;
+    }
+    .botaoVoltar{
+        margin-left: 1000px;
+        position: absolute;
+        width: 150px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    .caixa{
+        margin-top: 100px;
+        width: 1150px;
+        height: 465px;
+        background-color: white;
+        color: black;
+        border-radius: 30px;
+    }
+    .caixaVazia{
+        margin-top: 100px;
+        width: 1150px;
+        height: 60px;
+        background-color: white;
+        color: black;
+        border-radius: 30px;
+        padding: 15px;
+        text-align: center;
+    }
+    .q{
+        margin-top: 10px;
+        text-indent: 30px;
+    }
+    .dateNome{
+        text-indent: 50px;
+    }
+    .txt1{
+        margin-left: 25px;
+        width: 1100px;
+        height: 80px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        padding: 10px;
+        text-align: justify;
+    }
+</style>
+<div class="container">
+    <label class="nome">Registros</label>
+    <button class="botaoVoltar" onclick="window.location.href = '/retro'">Voltar</button>
+
+    {% for retro in retro %}
+    <div class="caixa">
+        <label class="q"><strong>Dia e colaborador:</strong></label><br>
+        <label class="dateNome">{{retro.date_retro}}</label>
+        <br>
+        <label class="q"><strong>Quais foram os pontos positivos dessa Sprint?</strong></label>
+        <br>
+        <textarea disabled class="txt1">{{retro.q1}}</textarea>
+        <br>
+        <label class="q"><strong>E os pontos negativos?</strong></label>
+        <br>
+        <textarea disabled class="txt1">{{retro.q2}}</textarea>
+        <br>
+        <label class="q"><strong>Alguma sugestão de melhora?</strong></label>
+        <br>
+        <textarea disabled class="txt1">{{retro.q3}}</textarea>
+        <br>
+
+        {% empty %}
+        <div class="caixaVazia">
+        <label><b>Ainda não possui registros.</b></label>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

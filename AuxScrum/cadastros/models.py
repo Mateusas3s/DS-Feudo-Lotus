@@ -7,7 +7,7 @@ from usuarios.models import User
 class Projeto(models.Model):
     nome = models.CharField(max_length=50)
     descricao = models.TextField(verbose_name='Descrição')
-    membros = models.ManyToManyField(User, related_name='membros')
+    membros = models.ManyToManyField(User)
 
     def __str__(self):
         return '{}'.format(self.nome)
