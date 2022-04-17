@@ -1,0 +1,181 @@
+{% extends 'usuarios/home.html' %}
+{% load static %}
+{% block title %}Form da Daily{% endblock %}
+
+
+{% block content %}
+<style>
+    .container{
+        margin-top: 50px;
+    }
+    .nome{
+        position: absolute;
+        width: 600px;
+        height: 50px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        font-size: 30px;
+        text-align: center;
+    }
+    .perguntas{
+        position: absolute;
+        margin-top: 90px;
+        margin-left: 300px;
+    }
+    .p1{
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 105px;
+        width: 300px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .p2{
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 105px;
+        width: 300px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .p3{
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 105px;
+        width: 300px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .p4{
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 70px;
+        width: 400px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .textq1{
+        margin-left: -20px;
+        margin-top: 20px;
+        width: 550px;
+        height: 250px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        text-indent: 30px;
+        text-align: justify;
+        padding: 10px;
+    }
+    .textq2{
+        margin-left: -20px;
+        margin-top: 20px;
+        width: 550px;
+        height: 250px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        text-indent: 30px;
+        text-align: justify;
+        padding: 10px;
+    }
+    .textq3{
+        margin-left: -20px;
+        margin-top: 20px;
+        width: 550px;
+        height: 250px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        text-indent: 30px;
+        text-align: justify;
+        padding: 10px;
+    }
+    .textq4{
+        margin-left: 85px;
+        margin-top: 30px;
+        width: 370px;
+        height: 40px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        text-indent: 30px;
+        text-align: justify;
+    }
+    .div1{
+        position: absolute;
+        margin-top: 80px;
+    }
+    .div2{
+        position: absolute;
+        margin-top: 80px;
+        margin-left: 600px;
+    }
+    .div3{
+        position: absolute;
+        margin-top: 400px;
+    }
+    .div4{
+        position: absolute;
+        margin-top: 460px;
+        margin-left: 600px;
+    }
+    .botao{
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        margin-top: 40px;
+        margin-left: 120px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+
+</style>
+<div class="container">
+    <label class="nome">Edite os campos que deseja</label>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="div1">
+            <label class="p1">O que fiz hoje?</label></br>
+            <textarea class='textq1'name="q1" id="q1" cols="30" rows="10">{{ formDaily.q1 }}</textarea></br>
+        </div>
+
+        <div class="div2">
+            <label class="p2">Quais foram os impedimentos?</label></br>
+            <textarea class='textq2'name="q2" id="q2" cols="30" rows="10">{{ formDaily.q2 }}</textarea></br>
+        </div>
+
+        <div class="div3">
+            <label class="p3">O que pretendo fazer?</label></br>
+            <textarea class='textq3'name="q3" id="q3" cols="30" rows="10">{{ formDaily.q3 }}</textarea></br>
+        </div>
+
+        <div class="div4">
+            <label class="p4">Esta daily é referente aos dia e usuário:</label></br>
+            <select class='textq4'name="date_daily" required id="id_date_daily">
+                {% for i in form.date_daily %}
+                {{i}}
+                {% endfor %}
+            </select></br>
+        <button class='botao' type="submit">Salvar Alterações</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

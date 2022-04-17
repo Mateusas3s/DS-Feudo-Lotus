@@ -1,18 +1,17 @@
 from dataclasses import fields
+from multiprocessing import context
 from re import template
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from django.views.generic.edit import CreateView
-from flask import request
+from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic import TemplateView
+# from flask import request
 from .models import UserProfile
 from .forms import UsuarioForm
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
-
-
-
 
 # Create your views here.
 
@@ -21,6 +20,7 @@ class UsuarioCreate(CreateView):
     form_class = UsuarioForm
     success_url = reverse_lazy('login')
 
+# Perfil de Usuário 
 def paginaPerfil(request, user_id):
     usuario = UserProfile.objects.get(user_id=user_id)
     user_dado = User.objects.get(id=user_id)
@@ -71,5 +71,10 @@ def alterarSenha(request):
             'form': form
         }
     return render(request, 'usuarios/alterarSenha.html', context)
-    
+
+class UserDelete(DeleteView):
+    template_name = 'usuarios/formDelete.html'
+    model = User
+    success_url = reverse_lazy('login')
+
 

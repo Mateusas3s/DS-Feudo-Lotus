@@ -1,0 +1,177 @@
+{% extends 'usuarios/home.html' %}
+{% load static %}
+
+{% block title %}{{projeto.nome}}{% endblock %}
+
+
+{% block content %}
+<style>
+    .nome{
+        position: absolute;
+        width: 500px;
+        height: 50px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        font-size: 30px;
+        text-align: center;
+        
+    }
+    .botaoEditar{
+        margin-left: 840px;
+        position: absolute;
+        width: 150px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    .botaoExcluir{
+        margin-left: 1000px;
+        position: absolute;
+        width: 150px;
+        height: 50px;
+        background: #000000 !important;
+	    color: white !important;
+        border-radius: 30px; 
+    }
+    .container{
+        margin-top: 50px;
+    }
+    .container-2{
+        margin-top: 100px;
+        height: 50px;
+    }
+    .container-3{
+        margin-top: 300px;
+        height: 50px;
+    }
+    .membrosNome{
+        margin-left: 0px;
+        position: absolute;
+        width: 200px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .descricaoNome{
+        margin-left: 600px;
+        position: absolute;
+        width: 200px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .membroCard{
+        position: absolute;
+        width: 500px;
+        height: 250px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        overflow-y: auto;
+
+    }
+    .descricaoCard{
+        position: absolute;
+        margin-left: 600px;
+        width: 550px;
+        height: 250px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        text-indent: 30px;
+        padding: 10px;
+        text-align: justify;
+    }
+    .membros{
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+    .descricao{
+        margin-left: 20px;
+        width: 550px;
+        height: 200px;
+        border-radius: 30px;
+    }
+    .botaoDaily{
+        position: absolute;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    .botaoRetrospectiva{
+        position: absolute;
+        margin-left: 400px;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    .botaoUSs{
+        position: absolute;
+        margin-left: 800px;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    
+</style>
+<div class="container">
+    <div class="input-group mb-3">
+        <div>
+        <label class="nome">{{projeto.nome}}</label>
+        </div>
+        <div>
+        <a href="{% url 'editarProjeto' projeto.pk %}"><button class="botaoEditar" > 
+            <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="white" viewBox="0 0 576 512">
+                <path d="M292.7 342.3C289.7 345.3 288 349.4 288 353.7V416h62.34c4.264 0 8.35-1.703 11.35-4.727l156.9-158l-67.88-67.88L292.7 342.3zM568.5 167.4L536.6 135.5c-9.875-10-26-10-36 0l-27.25 27.25l67.88 67.88l27.25-27.25C578.5 193.4 578.5 177.3 568.5 167.4zM256 0v128h128L256 0zM256 448c-16.07-.2852-30.62-9.359-37.88-23.88c-2.875-5.875-8-6.5-10.12-6.5s-7.25 .625-10 6.125l-7.749 15.38C187.6 444.6 181.1 448 176 448H174.9c-6.5-.5-12-4.75-14-11L144 386.6L133.4 418.5C127.5 436.1 111 448 92.45 448H80C71.13 448 64 440.9 64 432S71.13 416 80 416h12.4c4.875 0 9.102-3.125 10.6-7.625l18.25-54.63C124.5 343.9 133.6 337.3 144 337.3s19.5 6.625 22.75 16.5l13.88 41.63c19.75-16.25 54.13-9.75 66 14.12C248.5 413.2 252.2 415.6 256 415.9V347c0-8.523 3.402-16.7 9.451-22.71L384 206.5V160H256c-17.67 0-32-14.33-32-32L224 0H48C21.49 0 0 21.49 0 48v416C0 490.5 21.49 512 48 512h288c26.51 0 48-21.49 48-48V448H256z"/></svg>
+                Editar
+        </button></a>
+        <a href="{% url 'excluir-projeto' projeto.pk %}"><button class="botaoExcluir" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="white" viewBox="0 0 448 512">
+                <path d="M160 400C160 408.8 152.8 416 144 416C135.2 416 128 408.8 128 400V192C128 183.2 135.2 176 144 176C152.8 176 160 183.2 160 192V400zM240 400C240 408.8 232.8 416 224 416C215.2 416 208 408.8 208 400V192C208 183.2 215.2 176 224 176C232.8 176 240 183.2 240 192V400zM320 400C320 408.8 312.8 416 304 416C295.2 416 288 408.8 288 400V192C288 183.2 295.2 176 304 176C312.8 176 320 183.2 320 192V400zM317.5 24.94L354.2 80H424C437.3 80 448 90.75 448 104C448 117.3 437.3 128 424 128H416V432C416 476.2 380.2 512 336 512H112C67.82 512 32 476.2 32 432V128H24C10.75 128 0 117.3 0 104C0 90.75 10.75 80 24 80H93.82L130.5 24.94C140.9 9.357 158.4 0 177.1 0H270.9C289.6 0 307.1 9.358 317.5 24.94H317.5zM151.5 80H296.5L277.5 51.56C276 49.34 273.5 48 270.9 48H177.1C174.5 48 171.1 49.34 170.5 51.56L151.5 80zM80 432C80 449.7 94.33 464 112 464H336C353.7 464 368 449.7 368 432V128H80V432z"/></svg>
+                Excluir
+        </button></a>
+        </div>
+    </div>
+    <div class="container-2">
+        <div>
+            <label class="membrosNome">Membros</label>
+        </div>
+        <div>
+            <label class="descricaoNome">Descrição</label>
+        </div>
+    </div>
+    <div class="membroCard">
+        <label class="membros">
+            {% for i in projeto.membros.all %}
+            <a href=""><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12.01 20c-5.065 0-9.586-4.211-12.01-8.424 2.418-4.103 6.943-7.576 12.01-7.576 5.135 0 9.635 3.453 11.999 7.564-2.241 4.43-6.726 8.436-11.999 8.436zm-10.842-8.416c.843 1.331 5.018 7.416 10.842 7.416 6.305 0 10.112-6.103 10.851-7.405-.772-1.198-4.606-6.595-10.851-6.595-6.116 0-10.025 5.355-10.842 6.584zm10.832-4.584c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5zm0 1c2.208 0 4 1.792 4 4s-1.792 4-4 4-4-1.792-4-4 1.792-4 4-4z"/></svg></a> {{i}}</br>
+            <label>-----------------------------------------------------------------------------------</label></br>
+            {% endfor %}
+        </label>
+    </div>
+    <div>
+        <textarea disabled class="descricaoCard">{{projeto.descricao}}</textarea>
+    </div>
+    <div class="container-3">
+        <a href="{% url 'pagina-daily' %}"><button class="botaoDaily">Daily</button></a>
+        <a href="{% url 'pagina-retro' %}"><button class="botaoRetrospectiva">Retrospectiva</button></a>
+        <a href="{% url 'tarefas_page' %}"><button class="botaoUSs">Tarefas</button></a>
+    </div>
+</div>
+
+
+    
+{% endblock %}

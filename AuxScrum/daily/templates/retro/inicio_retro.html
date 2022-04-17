@@ -1,0 +1,111 @@
+{% extends 'usuarios/home.html' %}
+{% load static %}
+{% block title %}Inicio da Retrospectiva{% endblock %}
+
+{% block content %}
+<style>
+    .container{
+        margin-top: 50px;
+    }
+    .nome{
+        position: absolute;
+        width: 600px;
+        height: 50px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        font-size: 30px;
+        text-align: center;
+    }
+    .botaoVoltar{
+        margin-left: 1000px;
+        position: absolute;
+        width: 150px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    .perguntas{
+        position: absolute;
+        margin-top: 120px;
+        margin-left: 300px;
+    }
+    .nomeColaborador{
+        position: absolute;
+        margin-top: 10px;
+        margin-left: 105px;
+        width: 300px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .nomeData{
+        position: absolute;
+        margin-top: 85px;
+        margin-left: 105px;
+        width: 300px;
+        height: 30px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .inputNomeColaborador{
+        position: absolute;
+        margin-top: 30px;
+        margin-left: 80px;
+        width: 350px;
+        height: 40px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .inputData{
+        position: absolute;
+        margin-top: 100px;
+        margin-left: 80px;
+        width: 350px;
+        height: 40px;
+        background: white !important;
+	    color: black !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+    .botao{
+        position: absolute;
+        margin-top: 150px;
+        margin-left: 150px;
+        width: 200px;
+        height: 40px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+</style>
+<div class="container">
+    <label class="nome">Vamos realizar a Retrospectiva?</label>
+    <button class="botaoVoltar" onclick="window.location.href = '/retro'">Voltar</button>
+    <div class='perguntas'>
+        <form action='' method="POST">
+            {% csrf_token %}
+            <label class="nomeColaborador">Nome do Colaborador:</label></br>
+            <input class='inputNomeColaborador'type="text" name="user" maxlength="50" required id="id_user">
+            
+            <label class="nomeData">Data de hoje:</label></br>
+            <input class="inputData" type="text" placeholder='mês/dia/ano' name="date" id="id_date"><input type="hidden" name="initial-date" id="initial-id_date">
+            <br>
+            <button class="botao" type="submit">Começar</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
