@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('usuarios.urls')),
     path('',include('cadastros.urls')),
-
+    path('',include('daily.urls')),
+    path('', include('tarefas.urls')), 
 ]

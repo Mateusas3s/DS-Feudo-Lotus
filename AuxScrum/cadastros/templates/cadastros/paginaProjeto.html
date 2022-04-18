@@ -42,6 +42,10 @@
         margin-top: 100px;
         height: 50px;
     }
+    .container-3{
+        margin-top: 300px;
+        height: 50px;
+    }
     .membrosNome{
         margin-left: 0px;
         position: absolute;
@@ -64,7 +68,6 @@
         font-size: 20px;
         text-align: center;
     }
-
     .membroCard{
         position: absolute;
         width: 500px;
@@ -87,7 +90,6 @@
         padding: 10px;
         text-align: justify;
     }
-
     .membros{
         margin-top: 10px;
         margin-left: 20px;
@@ -96,6 +98,32 @@
         margin-left: 20px;
         width: 550px;
         height: 200px;
+        border-radius: 30px;
+    }
+    .botaoDaily{
+        position: absolute;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    .botaoRetrospectiva{
+        position: absolute;
+        margin-left: 400px;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
+        border-radius: 30px;
+    }
+    .botaoUSs{
+        position: absolute;
+        margin-left: 800px;
+        width: 350px;
+        height: 50px;
+        background: black !important;
+	    color: white !important;
         border-radius: 30px;
     }
     
@@ -136,6 +164,11 @@
     </div>
     <div>
         <textarea disabled class="descricaoCard">{{projeto.descricao}}</textarea>
+    </div>
+    <div class="container-3">
+        <a href="{% url 'pagina-daily' %}"><button class="botaoDaily">Daily</button></a>
+        <a href="{% url 'pagina-retro' %}"><button class="botaoRetrospectiva">Retrospectiva</button></a>
+        <a href="{% url 'tarefas_page' %}"><button class="botaoUSs">Tarefas</button></a>
     </div>
 </div>
 
